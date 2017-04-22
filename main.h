@@ -16,8 +16,8 @@ __published:	// IDE-managed Components
 	TPanel *Panel1;
 	TTreeView *TreeView1;
 	TSplitter *Splitter1;
-	TRichEdit *RichEdit1;
 	TButton *btLoadFile;
+	TMemo *Memo1;
 	void __fastcall btLoadFileClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations

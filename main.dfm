@@ -46,21 +46,18 @@ object fmMain: TfmMain
     Indent = 19
     TabOrder = 1
   end
-  object RichEdit1: TRichEdit
+  object Memo1: TMemo
     Left = 176
     Top = 81
     Width = 621
     Height = 513
     Align = alClient
-    Font.Charset = CHINESEBIG5_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
+    Lines.Strings = (
+      'Memo1')
     TabOrder = 2
-    Zoom = 100
-    ExplicitLeft = 175
-    ExplicitWidth = 622
+    ExplicitLeft = 344
+    ExplicitTop = 344
+    ExplicitWidth = 185
+    ExplicitHeight = 89
   end
 end
