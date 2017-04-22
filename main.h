@@ -18,6 +18,7 @@ __published:	// IDE-managed Components
 	TSplitter *Splitter1;
 	TRichEdit *RichEdit1;
 	TButton *btLoadFile;
+	void __fastcall btLoadFileClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TfmMain(TComponent* Owner);

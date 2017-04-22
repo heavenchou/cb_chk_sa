@@ -29,11 +29,12 @@ object fmMain: TfmMain
     TabOrder = 0
     object btLoadFile: TButton
       Left = 40
-      Top = 16
+      Top = 21
       Width = 89
       Height = 41
       Caption = #38283#21855
       TabOrder = 0
+      OnClick = btLoadFileClick
     end
   end
   object TreeView1: TTreeView

@@ -14,3 +14,8 @@ __fastcall TfmMain::TfmMain(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
+void __fastcall TfmMain::btLoadFileClick(TObject *Sender)
+{
+	TreeView1->LoadFromFile("Y37_sa_tree.txt",TEncoding::UTF8);
+}
+//---------------------------------------------------------------------------
