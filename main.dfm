@@ -16,8 +16,9 @@ object fmMain: TfmMain
   object Splitter1: TSplitter
     Left = 169
     Top = 81
-    Width = 0
+    Width = 7
     Height = 513
+    ExplicitLeft = 162
   end
   object Panel1: TPanel
     Left = 0
@@ -45,9 +46,9 @@ object fmMain: TfmMain
     TabOrder = 1
   end
   object RichEdit1: TRichEdit
-    Left = 169
+    Left = 176
     Top = 81
-    Width = 628
+    Width = 621
     Height = 513
     Align = alClient
     Font.Charset = CHINESEBIG5_CHARSET
