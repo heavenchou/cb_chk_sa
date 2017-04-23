@@ -18,9 +18,17 @@ __published:	// IDE-managed Components
 	TSplitter *Splitter1;
 	TButton *btLoadFile;
 	TMemo *Memo1;
+	TButton *Button1;
 	void __fastcall btLoadFileClick(TObject *Sender);
+	void __fastcall Button1Click(TObject *Sender);
+	void __fastcall TreeView1DblClick(TObject *Sender);
+	void __fastcall TreeView1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y);
 private:	// User declarations
 public:		// User declarations
+
+    TTreeNode * TreeViewSelectNode;
+
 	__fastcall TfmMain(TComponent* Owner);
 };
 //---------------------------------------------------------------------------

@@ -14,7 +14,7 @@ object fmMain: TfmMain
   PixelsPerInch = 120
   TextHeight = 16
   object Splitter1: TSplitter
-    Left = 169
+    Left = 241
     Top = 81
     Width = 7
     Height = 513
@@ -36,28 +36,37 @@ object fmMain: TfmMain
       TabOrder = 0
       OnClick = btLoadFileClick
     end
+    object Button1: TButton
+      Left = 152
+      Top = 24
+      Width = 75
+      Height = 38
+      Caption = 'Button1'
+      TabOrder = 1
+      OnClick = Button1Click
+    end
   end
   object TreeView1: TTreeView
     Left = 0
     Top = 81
-    Width = 169
+    Width = 241
     Height = 513
     Align = alLeft
     Indent = 19
     TabOrder = 1
+    OnDblClick = TreeView1DblClick
+    OnMouseDown = TreeView1MouseDown
   end
   object Memo1: TMemo
-    Left = 176
+    Left = 248
     Top = 81
-    Width = 621
+    Width = 549
     Height = 513
     Align = alClient
     Lines.Strings = (
       'Memo1')
     TabOrder = 2
-    ExplicitLeft = 344
-    ExplicitTop = 344
-    ExplicitWidth = 185
-    ExplicitHeight = 89
+    ExplicitLeft = 176
+    ExplicitWidth = 621
   end
 end
