@@ -37,7 +37,12 @@ public:		// User declarations
 
     bool TreeView_Modified;
 	TTreeNode * TreeViewSelectNode;
+
+	TStringList * slSaDict_key; // 字典的單字
+	TStringList * slSaDict_val; // 字典的內容
+
 	void __fastcall check_treeview();
+	void __fastcall LoadSanskritDict(UnicodeString sFileName);      // 載入梵文字典
 
 	__fastcall TfmMain(TComponent* Owner);
 };

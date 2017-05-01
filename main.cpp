@@ -14,6 +14,11 @@ __fastcall TfmMain::TfmMain(TComponent* Owner)
 {
 	TreeViewSelectNode = 0;
 	TreeView_Modified = false;
+
+	slSaDict_key = new TStringList(); // 字典的單字
+	slSaDict_val = new TStringList(); // 字典的內容
+
+	LoadSanskritDict("sanskrit.txt");   // 載入梵文字典
 }
 //---------------------------------------------------------------------------
 void __fastcall TfmMain::btLoadFileClick(TObject *Sender)
@@ -195,6 +200,28 @@ void __fastcall TfmMain::check_treeview()
 			tn->Text = tn->Text.SetLength(tn->Text.Length()-1);
 		}
 	}
+
+	// 檢查是不是符合字典的字
+
+	for(int i=0; i<iCount; i++)
+	{
+		TTreeNode * tn = TreeView1->Items->Item[i];
+
+		if(tn->HasChildren)
+		{
+			UnicodeString sWord = tn->Text;
+			int iPos = sWord.Pos("(");
+			sWord.SetLength(iPos-1);
+
+			int ii;
+			if(slSaDict_key->Find(sWord, ii))
+			{
+				tn->Text = "*" + tn->Text;
+			}
+        }
+
+	}
+
 	TreeView1->Refresh();
 }
 
@@ -219,4 +246,19 @@ void __fastcall TfmMain::FormClose(TObject *Sender, TCloseAction &Action)
 	}
 }
 //---------------------------------------------------------------------------
+// 載入梵文字典
+void __fastcall TfmMain::LoadSanskritDict(UnicodeString sFileName)
+{
+	// 載入梵文字典
 
+	slSaDict_key->LoadFromFile(sFileName, TEncoding::UTF8);
+
+	for(int i=0; i< slSaDict_key->Count; i++)
+	{
+		UnicodeString sKey = slSaDict_key->Strings[i];
+		int iPos = sKey.Pos(" ");
+		sKey.SetLength(iPos-1);
+		slSaDict_key->Strings[i] = sKey;
+    }
+	slSaDict_key->Sort();
+}

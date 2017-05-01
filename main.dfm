@@ -29,8 +29,6 @@ object fmMain: TfmMain
     Height = 81
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = 192
-    ExplicitTop = 64
     object btLoadFile: TButton
       Left = 312
       Top = 21
@@ -82,7 +80,6 @@ object fmMain: TfmMain
     TabOrder = 1
     OnDblClick = TreeView1DblClick
     OnMouseDown = TreeView1MouseDown
-    ExplicitHeight = 513
   end
   object Memo1: TMemo
     Left = 248
@@ -92,15 +89,12 @@ object fmMain: TfmMain
     Align = alClient
     ScrollBars = ssBoth
     TabOrder = 2
-    ExplicitLeft = 247
-    ExplicitWidth = 870
-    ExplicitHeight = 513
   end
   object ImageList1: TImageList
     Left = 984
     Top = 24
     Bitmap = {
-      494C010102000800380010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101020008003C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
