@@ -27,6 +27,55 @@ void __fastcall TfmMain::btLoadFileClick(TObject *Sender)
 	TreeView1->LoadFromFile("Y37_sa_tree.txt",TEncoding::UTF8);
 	check_treeview();
 }
+
+//---------------------------------------------------------------------------
+// 文字有 + 都要打勾勾
+void __fastcall TfmMain::check_treeview()
+{
+ 	int iCount = TreeView1->Items->Count;
+
+	for(int i=0; i<iCount; i++)
+	{
+		TTreeNode * tn = TreeView1->Items->Item[i];
+		UnicodeString usLast = tn->Text.LastChar();
+		if(usLast == "+")   // + 打勾
+		{
+			tn->ImageIndex = 1;
+			tn->SelectedIndex = 1;
+			tn->Text = tn->Text.SetLength(tn->Text.Length()-1);
+		}
+		else if(usLast == "=")  // = 灰色
+		{
+			tn->ImageIndex = 2;
+			tn->SelectedIndex = 2;
+			tn->Text = tn->Text.SetLength(tn->Text.Length()-1);
+		}
+	}
+
+	// 檢查是不是符合字典的字
+
+	for(int i=0; i<iCount; i++)
+	{
+		TTreeNode * tn = TreeView1->Items->Item[i];
+
+		if(tn->HasChildren)
+		{
+			UnicodeString sWord = tn->Text;
+			int iPos = sWord.Pos("(");
+			sWord.SetLength(iPos-1);
+
+			int ii;
+			if(slSaDict_key->Find(sWord, ii))
+			{
+				tn->StateIndex = 3; // 加上紅圈
+			}
+        }
+
+	}
+
+	TreeView1->Refresh();
+}
+
 //---------------------------------------------------------------------------
 
 void __fastcall TfmMain::TreeView1DblClick(TObject *Sender)
@@ -117,6 +166,11 @@ void __fastcall TfmMain::btOKClick(TObject *Sender)
 					tn->Parent->ImageIndex = 1;
 					tn->Parent->SelectedIndex = 1;
 				}
+				else
+				{
+					tn->Parent->ImageIndex = 2;
+					tn->Parent->SelectedIndex = 2;
+				}
 			}
 		}
 	}
@@ -143,6 +197,34 @@ void __fastcall TfmMain::btNoOKClick(TObject *Sender)
 
 				tn->Parent->ImageIndex = 0;
 				tn->Parent->SelectedIndex = 0;
+
+                // 判斷 root 要不要 check
+
+				bool bCheck = false;
+
+				TTreeNode * tnRoot = tn->Parent;
+				TTreeNode * tnChild = tnRoot->getFirstChild();
+
+				while(tnChild)
+				{
+					if(tnChild->ImageIndex == 1)
+					{
+						bCheck = true;
+						break;
+					}
+					tnChild = tnRoot->GetNextChild(tnChild);
+				}
+
+				if(bCheck)
+				{
+					tn->Parent->ImageIndex = 2;
+					tn->Parent->SelectedIndex = 2;
+				}
+				else
+				{
+					tn->Parent->ImageIndex = 0;
+					tn->Parent->SelectedIndex = 0;
+				}
             }
 		}
 	}
@@ -150,28 +232,30 @@ void __fastcall TfmMain::btNoOKClick(TObject *Sender)
 	TreeView1->SetFocus();
 }
 //---------------------------------------------------------------------------
-
+// 儲存資料
 void __fastcall TfmMain::btSaveFileClick(TObject *Sender)
 {
 	if(TreeView_Modified)
 	{
 		int iCount = TreeView1->Items->Count;
 
-		// 打勾的都加上 +
+		// 打勾的都加上 數字
 		for(int i=0; i<iCount; i++)
 		{
 			TTreeNode * tn = TreeView1->Items->Item[i];
 			if(tn->ImageIndex == 1)
 				tn->Text = tn->Text + "+";
+			else if(tn->ImageIndex == 2)
+				tn->Text = tn->Text + "=";
 		}
 		// 儲存
 		TreeView1->SaveToFile("Y37_sa_tree.txt",TEncoding::UTF8);
 		TreeView_Modified = false;
-		// 移除 + 號
+		// 移除 數字 (1 打勾 , 2 灰色)
 		for(int i=0; i<iCount; i++)
 		{
 			TTreeNode * tn = TreeView1->Items->Item[i];
-			if(tn->ImageIndex == 1)
+			if(tn->ImageIndex == 1 || tn->ImageIndex == 2)
 				tn->Text = tn->Text.SetLength(tn->Text.Length()-1);
 		}
 	}
@@ -184,48 +268,6 @@ void __fastcall TfmMain::btSaveFileClick(TObject *Sender)
 
 }
 //---------------------------------------------------------------------------
-// 文字有 + 都要打勾勾
-void __fastcall TfmMain::check_treeview()
-{
- 	int iCount = TreeView1->Items->Count;
-
-	for(int i=0; i<iCount; i++)
-	{
-		TTreeNode * tn = TreeView1->Items->Item[i];
-		UnicodeString usLast = tn->Text.LastChar();
-		if(usLast == "+")
-		{
-			tn->ImageIndex = 1;
-			tn->SelectedIndex = 1;
-			tn->Text = tn->Text.SetLength(tn->Text.Length()-1);
-		}
-	}
-
-	// 檢查是不是符合字典的字
-
-	for(int i=0; i<iCount; i++)
-	{
-		TTreeNode * tn = TreeView1->Items->Item[i];
-
-		if(tn->HasChildren)
-		{
-			UnicodeString sWord = tn->Text;
-			int iPos = sWord.Pos("(");
-			sWord.SetLength(iPos-1);
-
-			int ii;
-			if(slSaDict_key->Find(sWord, ii))
-			{
-				tn->Text = "*" + tn->Text;
-			}
-        }
-
-	}
-
-	TreeView1->Refresh();
-}
-
-
 void __fastcall TfmMain::FormClose(TObject *Sender, TCloseAction &Action)
 {
 	if(TreeView_Modified || Memo1->Modified)

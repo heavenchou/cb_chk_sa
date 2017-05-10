@@ -16,7 +16,6 @@ class TfmMain : public TForm
 {
 __published:	// IDE-managed Components
 	TPanel *Panel1;
-	TTreeView *TreeView1;
 	TSplitter *Splitter1;
 	TButton *btLoadFile;
 	TMemo *Memo1;
@@ -24,6 +23,7 @@ __published:	// IDE-managed Components
 	TImageList *ImageList1;
 	TButton *btOK;
 	TButton *btNoOK;
+	TTreeView *TreeView1;
 	void __fastcall btLoadFileClick(TObject *Sender);
 	void __fastcall TreeView1DblClick(TObject *Sender);
 	void __fastcall TreeView1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
