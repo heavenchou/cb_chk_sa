@@ -29,20 +29,33 @@ object fmMain: TfmMain
     Height = 81
     Align = alTop
     TabOrder = 0
+    ExplicitTop = -6
+    object lbFind: TLabel
+      Left = 634
+      Top = 38
+      Width = 6
+      Height = 24
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -20
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
     object btLoadFile: TButton
-      Left = 312
+      Left = 729
       Top = 21
       Width = 89
-      Height = 41
+      Height = 40
       Caption = #38283#21855
       TabOrder = 0
       OnClick = btLoadFileClick
     end
     object btSaveFile: TButton
-      Left = 431
+      Left = 840
       Top = 21
       Width = 89
-      Height = 41
+      Height = 40
       Caption = #20786#23384
       TabOrder = 1
       OnClick = btSaveFileClick
@@ -64,6 +77,31 @@ object fmMain: TfmMain
       Caption = #26410#23436
       TabOrder = 3
       OnClick = btNoOKClick
+    end
+    object btModify: TButton
+      Left = 248
+      Top = 21
+      Width = 89
+      Height = 41
+      Caption = #20462#35330
+      TabOrder = 4
+      OnClick = btModifyClick
+    end
+    object edFind: TEdit
+      Left = 377
+      Top = 25
+      Width = 153
+      Height = 32
+      TabOrder = 5
+    end
+    object btFind: TButton
+      Left = 553
+      Top = 21
+      Width = 75
+      Height = 40
+      Caption = #25628#23563
+      TabOrder = 6
+      OnClick = btFindClick
     end
   end
   object Memo1: TMemo

@@ -24,6 +24,10 @@ __published:	// IDE-managed Components
 	TButton *btOK;
 	TButton *btNoOK;
 	TTreeView *TreeView1;
+	TButton *btModify;
+	TEdit *edFind;
+	TButton *btFind;
+	TLabel *lbFind;
 	void __fastcall btLoadFileClick(TObject *Sender);
 	void __fastcall TreeView1DblClick(TObject *Sender);
 	void __fastcall TreeView1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
@@ -32,6 +36,8 @@ __published:	// IDE-managed Components
 	void __fastcall btNoOKClick(TObject *Sender);
 	void __fastcall btSaveFileClick(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall btModifyClick(TObject *Sender);
+	void __fastcall btFindClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 

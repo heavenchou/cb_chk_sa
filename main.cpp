@@ -4,6 +4,7 @@
 #pragma hdrstop
 
 #include "main.h"
+#include "modify.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -286,6 +287,7 @@ void __fastcall TfmMain::FormClose(TObject *Sender, TCloseAction &Action)
 
 		if(iResult == IDNO) Action = caFree;
 	}
+
 }
 //---------------------------------------------------------------------------
 // 載入梵文字典
@@ -304,3 +306,30 @@ void __fastcall TfmMain::LoadSanskritDict(UnicodeString sFileName)
     }
 	slSaDict_key->Sort();
 }
+void __fastcall TfmMain::btModifyClick(TObject *Sender)
+{
+	fmModify->edOrig->Text = Memo1->SelText;
+	fmModify->edModi->Text = Memo1->SelText;
+	fmModify->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmMain::btFindClick(TObject *Sender)
+{
+	int i = Pos(edFind->Text, Memo1->Text, Memo1->SelStart+2);
+
+	if(i>0)
+	{
+		Memo1->SelStart = i-1;
+		Memo1->SelLength = edFind->Text.Length();
+		Memo1->SetFocus();
+        lbFind->Caption = "";
+	}
+	else
+	{
+		lbFind->Caption = "找不到了";
+    }
+
+}
+//---------------------------------------------------------------------------
+
