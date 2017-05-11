@@ -114,10 +114,11 @@
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppEnableHighDPI>true</AppEnableHighDPI>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Locale>1028</VerInfo_Locale>
         <UsePackages>false</UsePackages>
         <LinkPackageStatics>rtl.lib;vcl.lib</LinkPackageStatics>
         <DynamicRTL>false</DynamicRTL>
+        <VerInfo_Keys>CompanyName=CBETA;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=Copyright (C) Heaven Chou 2017;LegalTrademarks=Copyright (C) CBETA 2001-2017;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <Defines>NDEBUG;$(Defines)</Defines>
