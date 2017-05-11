@@ -100,7 +100,7 @@ void __fastcall TfmMain::TreeView1DblClick(TObject *Sender)
 	sStr = sStr.SubString(1,iPos-1);
 
 	// treeview item 第三個字是此字的位移
-	if(sStr3.ToIntDef(0)>0)
+	if(sStr3.ToIntDef(0)>=0)
 	{
 		int iPos = Memo1->Text.Pos(sStr2);
 

@@ -15,12 +15,12 @@ object fmMain: TfmMain
   PixelsPerInch = 120
   TextHeight = 24
   object Splitter1: TSplitter
-    Left = 0
+    Left = 241
     Top = 81
     Width = 7
     Height = 521
-    ExplicitLeft = 162
-    ExplicitHeight = 513
+    ExplicitLeft = 288
+    ExplicitTop = 87
   end
   object Panel1: TPanel
     Left = 0
@@ -76,7 +76,7 @@ object fmMain: TfmMain
     TabOrder = 1
   end
   object TreeView1: TTreeView
-    Left = 7
+    Left = 0
     Top = 81
     Width = 241
     Height = 521
@@ -90,13 +90,13 @@ object fmMain: TfmMain
     TabOrder = 2
     OnDblClick = TreeView1DblClick
     OnMouseDown = TreeView1MouseDown
-    ExplicitLeft = 0
+    ExplicitLeft = 7
   end
   object ImageList1: TImageList
     Left = 984
     Top = 24
     Bitmap = {
-      494C010104000800580010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101040008005C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
