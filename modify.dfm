@@ -17,7 +17,7 @@ object fmModify: TfmModify
   object Label1: TLabel
     Left = 32
     Top = 27
-    Width = 49
+    Width = 40
     Height = 24
     Caption = #21407#25991
   end

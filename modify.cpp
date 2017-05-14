@@ -24,9 +24,9 @@ void __fastcall TfmModify::btOKClick(TObject *Sender)
 		return;
 	}
 
-	UnicodeString sOut = "<note>[" + edOrig->Text + ">" + edModi->Text + "]" + cbReason->Text + "</note>";
+	UnicodeString sOut = "<note>[" + edOrig->Text + ">>" + edModi->Text + "]" + cbReason->Text + "</note>";
 
-	fmMain->Memo1->SelText = edModi->Text;
+	fmMain->Memo1->SelText = "[" + edOrig->Text + ">>" + edModi->Text + "]";
 	int iRow = SendMessage(fmMain->Memo1->Handle, EM_LINEFROMCHAR, fmMain->Memo1->SelStart, 0);
 
 	fmMain->Memo1->Lines->Insert(iRow+1, sOut);
