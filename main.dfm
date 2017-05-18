@@ -11,16 +11,17 @@ object fmMain: TfmMain
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  ShowHint = True
   OnClose = FormClose
   PixelsPerInch = 120
   TextHeight = 24
   object Splitter1: TSplitter
-    Left = 241
+    Left = 249
     Top = 81
     Width = 7
     Height = 521
-    ExplicitLeft = 288
-    ExplicitTop = 87
+    ExplicitLeft = 239
+    ExplicitTop = 80
   end
   object Panel1: TPanel
     Left = 0
@@ -29,8 +30,10 @@ object fmMain: TfmMain
     Height = 81
     Align = alTop
     TabOrder = 0
+    ExplicitLeft = -424
+    ExplicitTop = -6
     object lbFind: TLabel
-      Left = 634
+      Left = 618
       Top = 38
       Width = 6
       Height = 24
@@ -42,7 +45,7 @@ object fmMain: TfmMain
       ParentFont = False
     end
     object btLoadFile: TButton
-      Left = 729
+      Left = 801
       Top = 21
       Width = 89
       Height = 40
@@ -51,7 +54,7 @@ object fmMain: TfmMain
       OnClick = btLoadFileClick
     end
     object btSaveFile: TButton
-      Left = 840
+      Left = 904
       Top = 21
       Width = 89
       Height = 40
@@ -87,14 +90,14 @@ object fmMain: TfmMain
       OnClick = btModifyClick
     end
     object edFind: TEdit
-      Left = 377
+      Left = 361
       Top = 25
       Width = 153
       Height = 32
       TabOrder = 5
     end
     object btFind: TButton
-      Left = 553
+      Left = 537
       Top = 21
       Width = 75
       Height = 40
@@ -103,9 +106,9 @@ object fmMain: TfmMain
       OnClick = btFindClick
     end
     object btImage: TButton
-      Left = 646
+      Left = 713
       Top = 21
-      Width = 65
+      Width = 74
       Height = 40
       Caption = #22294#27284
       TabOrder = 7
@@ -113,35 +116,83 @@ object fmMain: TfmMain
     end
   end
   object Memo1: TMemo
-    Left = 248
+    Left = 256
     Top = 81
-    Width = 876
+    Width = 868
     Height = 521
     Align = alClient
     ScrollBars = ssBoth
     TabOrder = 1
+    ExplicitLeft = 248
+    ExplicitWidth = 876
   end
-  object TreeView1: TTreeView
+  object Panel2: TPanel
     Left = 0
     Top = 81
-    Width = 241
+    Width = 249
     Height = 521
     Align = alLeft
-    Images = ImageList1
-    Indent = 19
-    MultiSelect = True
-    MultiSelectStyle = [msControlSelect, msShiftSelect]
-    ReadOnly = True
-    StateImages = ImageList1
     TabOrder = 2
-    OnDblClick = TreeView1DblClick
-    OnMouseDown = TreeView1MouseDown
+    object Panel3: TPanel
+      Left = 1
+      Top = 1
+      Width = 247
+      Height = 80
+      Align = alTop
+      TabOrder = 0
+      ExplicitWidth = 231
+      object btFindSel: TButton
+        Left = 127
+        Top = 40
+        Width = 115
+        Height = 34
+        Hint = #23563#25214#25152#36984#21462#30340#25991#23383
+        Caption = #23563#36984#25799#25991#23383
+        TabOrder = 0
+        OnClick = btFindSelClick
+      end
+    end
+    object TreeView1: TTreeView
+      Left = 1
+      Top = 81
+      Width = 247
+      Height = 439
+      Align = alClient
+      Images = ImageList1
+      Indent = 19
+      MultiSelect = True
+      MultiSelectStyle = [msControlSelect, msShiftSelect]
+      ReadOnly = True
+      StateImages = ImageList1
+      TabOrder = 1
+      OnDblClick = TreeView1DblClick
+      OnMouseDown = TreeView1MouseDown
+      ExplicitLeft = -4
+      ExplicitWidth = 231
+    end
+  end
+  object edFindsa: TEdit
+    Left = 8
+    Top = 87
+    Width = 235
+    Height = 32
+    TabOrder = 3
+  end
+  object btFindsa: TButton
+    Left = 8
+    Top = 122
+    Width = 115
+    Height = 34
+    Hint = #23563#25214#21491#27396#20013#30340#25991#23383
+    Caption = #23563#19978#26041#25991#23383
+    TabOrder = 4
+    OnClick = btFindsaClick
   end
   object ImageList1: TImageList
-    Left = 984
-    Top = 24
+    Left = 1056
+    Top = 32
     Bitmap = {
-      494C010104000800600010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000800640010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

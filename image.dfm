@@ -22,8 +22,6 @@ object fmImage: TfmImage
     Height = 65
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = -8
-    ExplicitTop = 24
     object btZoomIn: TButton
       Left = 8
       Top = 12

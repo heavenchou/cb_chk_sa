@@ -34,7 +34,7 @@ void __fastcall TfmMain::btLoadFileClick(TObject *Sender)
 // 文字有 + 都要打勾勾
 void __fastcall TfmMain::check_treeview()
 {
- 	int iCount = TreeView1->Items->Count;
+	int iCount = TreeView1->Items->Count;
 
 	for(int i=0; i<iCount; i++)
 	{
@@ -351,8 +351,82 @@ void __fastcall TfmMain::btImageClick(TObject *Sender)
 	fmImage->Image1->Width = fmImage->Image1->Picture->Width * 0.5;
 	fmImage->Image1->Height = fmImage->Image1->Picture->Height * 0.5;
 
+	fmImage->Caption = "原書圖檔 " + uFileName;
+
 	fmImage->Show();
 
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmMain::btFindsaClick(TObject *Sender)
+{
+	UnicodeString uWord = edFindsa->Text + "(";
+
+	if(uWord == "(")
+	{
+		ShowMessage("請輸入要搜尋的文字");
+		edFindsa->SetFocus();
+		return;
+    }
+
+	int iWordLen = uWord.Length();
+
+ 	int iCount = TreeView1->Items->Count;
+
+	for(int i=0; i<iCount; i++)
+	{
+		TTreeNode * tn = TreeView1->Items->Item[i];
+
+		if(tn->Text.Pos(uWord) == 1)
+		{
+			tn->Selected = true;
+			TreeView1->SetFocus();
+			return;
+		}
+
+	}
+
+	ShowMessage("找不到");
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmMain::btFindSelClick(TObject *Sender)
+{
+	UnicodeString uWord = Memo1->SelText;
+
+	if(uWord == "")
+	{
+		ShowMessage("請在主文區選取要搜尋的文字");
+		return;
+	}
+
+	int iPos = Memo1->SelStart;
+
+	int iRow = SendMessage(Memo1->Handle, EM_LINEFROMCHAR, iPos, 0);
+	//int iCol = Memo1->SelStart - SendMessage(RichEdit->Handle, EM_LINEINDEX, iRow, 0);
+
+	UnicodeString uLine = Memo1->Lines->Strings[iRow];
+
+	// Y37n0037_p0000a01║
+
+	uWord =  uWord + "," + uLine.SubString(10,7);
+
+ 	int iCount = TreeView1->Items->Count;
+
+	for(int i=0; i<iCount; i++)
+	{
+		TTreeNode * tn = TreeView1->Items->Item[i];
+
+		if(tn->Text.Pos(uWord) == 1)
+		{
+			tn->Selected = true;
+			TreeView1->SetFocus();
+			return;
+		}
+
+	}
+
+	ShowMessage("找不到");
 }
 //---------------------------------------------------------------------------
 

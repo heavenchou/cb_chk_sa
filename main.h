@@ -23,12 +23,17 @@ __published:	// IDE-managed Components
 	TImageList *ImageList1;
 	TButton *btOK;
 	TButton *btNoOK;
-	TTreeView *TreeView1;
 	TButton *btModify;
 	TEdit *edFind;
 	TButton *btFind;
 	TLabel *lbFind;
 	TButton *btImage;
+	TPanel *Panel2;
+	TPanel *Panel3;
+	TTreeView *TreeView1;
+	TEdit *edFindsa;
+	TButton *btFindsa;
+	TButton *btFindSel;
 	void __fastcall btLoadFileClick(TObject *Sender);
 	void __fastcall TreeView1DblClick(TObject *Sender);
 	void __fastcall TreeView1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
@@ -40,6 +45,8 @@ __published:	// IDE-managed Components
 	void __fastcall btModifyClick(TObject *Sender);
 	void __fastcall btFindClick(TObject *Sender);
 	void __fastcall btImageClick(TObject *Sender);
+	void __fastcall btFindsaClick(TObject *Sender);
+	void __fastcall btFindSelClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 
