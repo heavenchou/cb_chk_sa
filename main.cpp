@@ -5,6 +5,7 @@
 
 #include "main.h"
 #include "modify.h"
+#include "image.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -329,6 +330,28 @@ void __fastcall TfmMain::btFindClick(TObject *Sender)
 	{
 		lbFind->Caption = "§ä¤£¨ì¤F";
     }
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmMain::btImageClick(TObject *Sender)
+{
+	int iPos = Memo1->SelStart;
+
+	int iRow = SendMessage(Memo1->Handle, EM_LINEFROMCHAR, iPos, 0);
+	//int iCol = Memo1->SelStart - SendMessage(RichEdit->Handle, EM_LINEINDEX, iRow, 0);
+
+	UnicodeString uLine = Memo1->Lines->Strings[iRow];
+
+	// Y37n0037_p0000a01ùø
+
+	UnicodeString uFileName =  "Y37_Image\\37-p" + uLine.SubString(11,4) + ".tif";
+
+	fmImage->Image1->Picture->LoadFromFile(uFileName);
+	fmImage->Image1->Width = fmImage->Image1->Picture->Width * 0.5;
+	fmImage->Image1->Height = fmImage->Image1->Picture->Height * 0.5;
+
+	fmImage->Show();
 
 }
 //---------------------------------------------------------------------------

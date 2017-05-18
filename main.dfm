@@ -29,7 +29,6 @@ object fmMain: TfmMain
     Height = 81
     Align = alTop
     TabOrder = 0
-    ExplicitTop = -6
     object lbFind: TLabel
       Left = 634
       Top = 38
@@ -103,6 +102,15 @@ object fmMain: TfmMain
       TabOrder = 6
       OnClick = btFindClick
     end
+    object btImage: TButton
+      Left = 646
+      Top = 21
+      Width = 65
+      Height = 40
+      Caption = #22294#27284
+      TabOrder = 7
+      OnClick = btImageClick
+    end
   end
   object Memo1: TMemo
     Left = 248
@@ -128,13 +136,12 @@ object fmMain: TfmMain
     TabOrder = 2
     OnDblClick = TreeView1DblClick
     OnMouseDown = TreeView1MouseDown
-    ExplicitLeft = 7
   end
   object ImageList1: TImageList
     Left = 984
     Top = 24
     Bitmap = {
-      494C0101040008005C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000800600010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

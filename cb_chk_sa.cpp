@@ -6,6 +6,7 @@
 //---------------------------------------------------------------------------
 USEFORM("main.cpp", fmMain);
 USEFORM("modify.cpp", fmModify);
+USEFORM("image.cpp", fmImage);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -15,6 +16,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 		Application->MainFormOnTaskBar = true;
 		Application->CreateForm(__classid(TfmMain), &fmMain);
 		Application->CreateForm(__classid(TfmModify), &fmModify);
+		Application->CreateForm(__classid(TfmImage), &fmImage);
 		Application->Run();
 	}
 	catch (Exception &exception)
